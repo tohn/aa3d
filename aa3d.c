@@ -30,6 +30,7 @@ static char data[65536 / 2];
 
 static char *default_string = "5H9NI67mfe}/ATy3\%RVjcgG{tPUbaWB(xLYosidDqkwv^]Q8FC2ZJ~zX[pK4u!nSrEMh)";
 
+void BadTextError();
 
 int main(int argc, char **argv)
 {
@@ -37,6 +38,7 @@ int main(int argc, char **argv)
     int letter;		/* letter is the curent letter to draw  */
     int d, old_d;	/* d, old_d are depth for this letter and the previous one.  */
     int s;		/* s is the offset (how many characters back to match this letter to)  */
+    int k;              // k is used to kill out of infinite loops
     bool l = 0, l2 = 0;	/* l, l2 are flags for when the files hit the end of a line  */
     int skip = 12;	/* skip is the length of the repeating pattern  */
     int width = 80;	/* width is the width in characters of the output  */
@@ -88,11 +90,14 @@ int main(int argc, char **argv)
 	l = 0;
 	l2 = 0;
 
-	if (rnd && string != NULL)
+	if (rnd && string != NULL) {
 	    /* Don't let 2 lines be shifted to near the same spot (looks less random)  */
+	    k = 0;
 	    do{
 		shift = rand() % strlen(string);
+		if (k++ > 1000) BadTextError();
 	    } while (strlen(string)>5 && shift - old_shift < strlen(string)/4 && old_shift - shift < strlen(string)/4);
+	}
 
 	old_shift = shift;
 	old_d = 0;
@@ -125,10 +130,13 @@ int main(int argc, char **argv)
 			letter = ' ', l2 = 1;
 		} else
 		letter = ' ';
-	    } else
+	    } else {
+	        k = 0;
 		do{
 		    letter = !digit ? default_string[rand() % strlen(default_string)] : rand() % 10 + '0';
+		    if (k++ > 1000) BadTextError();
 		}while (letter == data[x-1]);
+	    }
 
 	    if (string != NULL && s < 0)
 		letter = string[(x + shift) % strlen(string)];
@@ -139,25 +147,29 @@ int main(int argc, char **argv)
 	    
 	    /* if a letter falsely looks the same depth as the previous letter, 
 	       then pick a new letter that doesn't  */
-	    if (d > old_d && x >= skip)
+	    if (d > old_d && x >= skip) {
+	        k = 0;
 		while (letter == data[x-1] || letter == data[x-skip-old_d]) {
 		    if (string != NULL && strlen(string)>2)
 			letter = string[rand() % strlen(string)];
 		    else
 			letter = !digit ? default_string[rand() % strlen(default_string)] : rand() % 10 + '0';
+		    if (k++ > 1000) BadTextError();
 		}
-
+	    }
 
 	    /* if the last letter falsely looks the same depth as this letter,
 	       then pick a new letter that doesn't  */
-	    if (d < old_d && x > skip)
+	    if (d < old_d && x > skip) {
+	        k = 0;
 		while (data[x-1] == data[x] || data[x-1] == data[x-skip-d-1]) {
 		    if (string != NULL && strlen(string)>2)
 			data[x-1] = string[rand() % strlen(string)];
 		    else
 			data[x-1] = !digit ? default_string[rand() % strlen(default_string)] : rand() % 10 + '0';
+		    if (k++ > 1000) BadTextError();
 		}
-
+	    }
 
 	    data[x] = letter;
 	    old_d = d;
@@ -178,3 +190,10 @@ int main(int argc, char **argv)
     }
     return 0;
 }
+
+
+void BadTextError() {
+    printf("\nError: Your background text needs a more diverse set of characters for aa3d to work.\n\n");
+    exit(1);
+}
+
