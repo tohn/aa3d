@@ -1,0 +1,17 @@
+Ben Levitt has contributed following changes:
+
+ - commented the code a little so curious people can more
+   easily learn a little about stereograms
+ - improved the default character-set
+ - improved randomization of line offsets to avoid 2 lines
+   starting near the same spot
+ - added a randomizing seed command line argument
+ - fixed bug in the output: at borders between 2 different
+   depths, sometimes a character that was supposed to be at the depth
+   of the background looks like it's at the depth of the foreground. 
+   This was fixed by detecting when this happens, and replacing the
+   character with a random character.  This doesn't cause any visual problem,
+   because these characters on the bottom side of such a depth border would
+   only be seen by one eye in the real world, so it doesn't need to match up
+   with any other character.
+
