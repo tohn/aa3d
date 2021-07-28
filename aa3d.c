@@ -23,6 +23,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #define bool char
 
@@ -144,8 +145,8 @@ int main(int argc, char **argv)
 	    if (s >= 0)
 		letter = data[s];
 
-	    
-	    /* if a letter falsely looks the same depth as the previous letter, 
+
+	    /* if a letter falsely looks the same depth as the previous letter,
 	       then pick a new letter that doesn't  */
 	    if (d > old_d && x >= skip) {
 	        k = 0;
