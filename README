@@ -24,41 +24,52 @@ PB_VZWTFO\WMPB_VZWTFO\WMPB_ZWTFO\WMPB_ZWTTFO\WMPB_WTTFO\WMPB_WTTFOO\WMPB_WTTFOO\
 BPZRZ[IDK_ZIBPZRZ[IDK_ZIBPZR[IDK_ZIBPZR[[IDK_ZIBPZ[[IDK_ZIBPZ[[IDDK_ZIBPZ[[IDDK_
 ET_^__[\VEXJET_^__[\VEXJET_^__[\VEXJET_^__[\VEXJET_^__[\VEXJET_^__[\VEXJET_^__[\
 
-                    AA3D - ASCII art stereogram generator
+                    aa3d - An ASCII art stereogram generator
 
                        "New dimension for ASCII art"
 
-AA-project releases so called technology demo for it's new 3d stereogram
-technology (ASCII-3D-2000). It uses well known and popular random dot
-stereograms in ASCII ART (try to see above example). This technology will
-be soon included into mainstream AA-lib release (planned for new AA-lib 99). 
-Code is complettely year 2000 compliant now and unicode support is comming soon!
-Separate teams are working at hardware acceleration chips to be released before
-year 2000.
+The AA-project releases a so called technology demo for its new 3D stereogram
+technology (ASCII-3D-2000). It uses the well known and popular random dot
+stereograms in ASCII art (try to see the example above). This technology will
+be soon included into the mainstream AA-lib release (planned for new AA-lib 99).
+The Code is completely year 2000 compliant now and unicode support is coming soon!
+Separate teams are working on hardware acceleration chips to be released before
+the year 2000.
 
-FEATURES
+Features
 ========
- o High quality ascii art stereogram rendering
+
+ o High quality ASCII art stereogram rendering
  o Highly configurable
  o User friendly command line interface (including full online help)
  o Year 2000 compliant
 
-DOWNLOAD
+Download
 ========
 
-aa3d-1.0.tar.gz is avilable from AA-project ftp site:
-ftp://ftp.ta.jcu.cz/pub/aa/aa3d-1.0.tar.gz
+The original aa3d-1.0.tar.gz is available from:
 
-HOMEPAGE
+https://sourceforge.net/projects/aa-project/files/aa3d/1.0/aa3d-1.0.tar.gz
+
+Or get the code from:
+
+https://sourceforge.net/p/aa-project/code/
+
+For newer releases including patches, see
+https://github.com/tohn/aa3d/releases.
+
+Homepage
 ========
 
-http://www.ta.jcu.cz/aa/aa3d
+http://aa-project.sourceforge.net/aa3d/
 
-USAGE
+Usage
 =====
 
-Aa3d is stand alone program to convert simple text file 3d maps to stereogram.
-Input file should look as above:
+aa3d is a standalone program to convert simple text file 3D maps to a
+stereogram.
+
+The input file should look a bit like this:
 
 
                    11111111111111111111111111111111111
@@ -79,7 +90,7 @@ Input file should look as above:
                    11111111111111111111111111111111111
                    11111111111111111111111111111111111
 
-And result of ``aa3d <pyramid'' is:
+The result of 'aa3d <pyramid' is:
 
 GJTR`KMJN[LSGJTR`KMJN[LSGJTR`KMJN[LSGJTR`KMJN[LSGJTR`KMJN[LSGJTR`KMJN[LSGJTR`KMJ
 ]KMQ\\SP]UMY]KMQ\\SP]UMY]KMQ\\SPUMY]KMQ\\SPUMY]KMQ\\SPUMY]KMQ\\SPUMMY]KMQ\\SPUMM
@@ -101,11 +112,11 @@ NCLD`^KRCE[]NCLD`^KRCE[]NCLD`^KRE[]NCLD`^KRE[]NCLD`^KRE[]NCLD`^KRE[[]NCLD`^KRE[[
 ]L[\[Z`EFM[[]L[\[Z`EFM[[]L[\[Z`EM[[]L[\[Z`EM[[]L[\[Z`EM[[]L[\[Z`EM[[[]L[\[Z`EM[[
 HTHE\JXLNQLGHTHE\JXLNQLGHTHE\JXLNQLGHTHE\JXLNQLGHTHE\JXLNQLGHTHE\JXLNQLGHTHE\JXL
 
-Following options are available:
+The following options are available:
 
 Options:
 -w width   Image width (80)
--s step    Size of repeating seqence (12)
+-s step    Size of repeating sequence (12)
 -t text    Text used to generate background
 -r         Disable random text placement
 -f file    Use file as input for raster
@@ -121,32 +132,36 @@ AA-Project
                           <PROJECT><PROJECT>
                            dT    8  8    Tb
                           dT     8  8     Tb
-   
-Three goals of AA-Project:
 
-  1. Port all important software (like Doom, Second Reality, X windows
-     etc..) on AA-lib.
+The three goals of the AA-Project:
 
-  2. Port AA-lib on all available platforms (mainly ZX-Spectrum and
+  1. Port all important software (like Doom, Second Reality, X window
+     etc.) to AA-lib.
+
+  2. Port AA-lib to all available platforms (mainly ZX-Spectrum and
      Sharp).
 
   3. Force IBM to start manufacturing MDA cards again.
 
-   AA-project was started by Jan Hubicka. In that times just a few
-people knew about it. Then a new demo named BB has been relased to show
-the power of AA-lib technology. Now the project is freely available and
+AA-project was started by Jan Hubicka. Back then just a few
+people knew about it. Then a new demo named BB has been released to show
+the power of the AA-lib technology. Now the project is freely available and
 anyone can help.
 
-Where to find AA3d
+Where to find aa3d
 ==================
 
-   Just join our mailing list: `aa@horac.ta.jcu.cz'. Send:
-subscribe aa
-to majordomo@horac.ta.jcu.cz
+Mailinglists
+============
 
-   All programs covered under AA-project can be obtained at
-`ftp://ftp.ta.jcu.cz://pub/aa'.
+You can join any of the AA-project mailinglists here:
 
-   Or just browse our homepage at `http://www.ta.jcu.cz://aa'. A ton of
-examples of ascii-art generated by aalib, pointers to other AA-Project
-resources etc.
+https://sourceforge.net/p/aa-project/mailman/
+
+AA-Project Homepage
+===================
+
+http://aa-project.sourceforge.net
+
+There are lots of examples of ASCII art generated by AA-lib, pointers to
+other AA-project resources etc.
